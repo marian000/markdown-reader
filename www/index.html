@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -17,44 +17,44 @@
     <aside id="sidebar">
       <div class="sidebar-head">
         <span class="brand">📖 Markdown</span>
-        <button id="closeSidebar" class="icon-btn" title="Ascunde sidebar">✕</button>
+        <button id="closeSidebar" class="icon-btn" title="Hide sidebar">✕</button>
       </div>
 
       <div class="import-row">
         <button id="importFolder" class="import-btn">📁 Folder</button>
-        <button id="importFiles" class="import-btn">📄 Fișiere</button>
+        <button id="importFiles" class="import-btn">📄 Files</button>
       </div>
 
       <input id="folderInput" type="file" webkitdirectory directory multiple hidden>
       <input id="filesInput" type="file" accept=".md,.markdown,.mdown,.mkd,.txt" multiple hidden>
 
       <div class="search-row">
-        <input id="filter" type="search" placeholder="Caută..." autocomplete="off">
-        <button id="searchMode" class="mode-btn" title="Comută nume / conținut" data-mode="name">🔤</button>
+        <input id="filter" type="search" placeholder="Search..." autocomplete="off">
+        <button id="searchMode" class="mode-btn" title="Toggle name / content search" data-mode="name">🔤</button>
       </div>
 
       <div id="treeWrap"><ul id="tree"></ul></div>
       <div id="results" hidden></div>
 
       <div class="sidebar-foot">
-        <span id="fileCount">0 fișiere</span>
-        <button id="refreshBtn" class="text-btn" title="Reîncarcă de pe disc" hidden>↻ Refresh</button>
-        <button id="clearAll" class="text-btn">Golește</button>
+        <span id="fileCount">0 files</span>
+        <button id="refreshBtn" class="text-btn" title="Reload from disk" hidden>↻ Refresh</button>
+        <button id="clearAll" class="text-btn">Clear</button>
       </div>
     </aside>
 
     <main id="main">
       <header id="topbar">
         <button id="openSidebar" class="icon-btn" title="Sidebar">☰</button>
-        <span id="currentName">Niciun fișier deschis</span>
+        <span id="currentName">No file open</span>
         <div class="topbar-actions">
-          <button id="quickOpen" class="icon-btn" title="Deschidere rapidă (Cmd/Ctrl+P)">⌕</button>
-          <button id="fontDown" class="icon-btn" title="Text mai mic">A−</button>
-          <button id="fontUp" class="icon-btn" title="Text mai mare">A+</button>
-          <button id="toggleWide" class="icon-btn" title="Lățime citire">⇔</button>
-          <button id="toggleToc" class="icon-btn" title="Cuprins">¶</button>
+          <button id="quickOpen" class="icon-btn" title="Quick open (Cmd/Ctrl+P)">⌕</button>
+          <button id="fontDown" class="icon-btn" title="Smaller text">A−</button>
+          <button id="fontUp" class="icon-btn" title="Larger text">A+</button>
+          <button id="toggleWide" class="icon-btn" title="Reading width">⇔</button>
+          <button id="toggleToc" class="icon-btn" title="Table of contents">¶</button>
           <button id="printBtn" class="icon-btn" title="Export PDF / Print">⎙</button>
-          <button id="toggleTheme" class="icon-btn" title="Temă">🌓</button>
+          <button id="toggleTheme" class="icon-btn" title="Theme">🌓</button>
         </div>
       </header>
 
@@ -62,8 +62,8 @@
         <article id="content">
           <div class="empty-state">
             <h1>📖 Markdown Reader</h1>
-            <p>Importă un <b>folder</b> sau <b>fișiere</b> din sidebar.</p>
-            <p>Click pe un fișier .md ca să-l vezi randat.</p>
+            <p>Import a <b>folder</b> or <b>files</b> from the sidebar.</p>
+            <p>Click a .md file to see it rendered.</p>
           </div>
         </article>
         <nav id="toc" hidden></nav>
@@ -74,7 +74,7 @@
   <!-- Quick open modal -->
   <div id="qoOverlay" hidden>
     <div id="qoBox">
-      <input id="qoInput" type="text" placeholder="Caută fișier..." autocomplete="off">
+      <input id="qoInput" type="text" placeholder="Search file..." autocomplete="off">
       <ul id="qoList"></ul>
     </div>
   </div>

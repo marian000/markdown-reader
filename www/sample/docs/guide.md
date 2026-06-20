@@ -1,15 +1,15 @@
 # Guide
 
-Fișier în subfolder `docs/`. Înapoi la [welcome](../welcome.md).
+File in the `docs/` subfolder. Back to [welcome](../welcome.md).
 
-## Secțiunea unu
+## Section one
 
 Lorem ipsum unicorn markdown.
 
-## Secțiunea doi
+## Section two
 
-Cuvânt cheie: **portocală** pentru test search conținut.
+Keyword: **orange** for testing content search.
 
-### Subsecțiune
+### Subsection
 
-Text final.
+Final text.

@@ -232,7 +232,7 @@
     const ul = document.createElement('ul');
     renderTreeNode(data, ul, '', q);
     tree.appendChild(ul);
-    fileCount.textContent = `${files.length} fișiere`;
+    fileCount.textContent = `${files.length} files`;
   }
   function renderTreeNode(node, ul, prefix, q) {
     const dirNames = [...node.dirs.keys()].sort((a, b) => a.localeCompare(b));
@@ -278,7 +278,7 @@
   // ============ Content search ============
   function runContentSearch(q) {
     results.innerHTML = '';
-    if (!q) { results.innerHTML = '<div class="res-empty">Scrie ca să cauți în conținut…</div>'; return; }
+    if (!q) { results.innerHTML = '<div class="res-empty">Type to search in content…</div>'; return; }
     const ql = q.toLowerCase();
     let total = 0;
     for (const f of files) {
@@ -296,7 +296,7 @@
       item.addEventListener('click', () => { openFile(f.id).then(() => highlightInContent(q)); });
       results.appendChild(item);
     }
-    if (!total) results.innerHTML = '<div class="res-empty">Niciun rezultat.</div>';
+    if (!total) results.innerHTML = '<div class="res-empty">No results.</div>';
   }
   const escapeReg = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -336,7 +336,7 @@
   function buildToc() {
     const heads = [...content.querySelectorAll('h1, h2, h3')];
     if (heads.length < 2) { tocEl.innerHTML = ''; tocLinks = []; return; }
-    tocEl.innerHTML = '<div class="toc-title">Cuprins</div>';
+    tocEl.innerHTML = '<div class="toc-title">Contents</div>';
     tocLinks = heads.map((h) => {
       const a = document.createElement('a');
       a.textContent = h.textContent;
@@ -414,7 +414,7 @@
       try {
         const r = await np.pickFolder();
         if (r && r.items) ingestNative(r.items);
-      } catch (e) { alert('Folder anulat sau eroare: ' + e.message); }
+      } catch (e) { alert('Folder cancelled or error: ' + e.message); }
       return;
     }
     $('#folderInput').click();
@@ -471,8 +471,8 @@
     images.forEach((v) => URL.revokeObjectURL(v.url)); images.clear();
     folderRoot = null; if (watchStop) { try { watchStop(); } catch (e) {} }
     renderTree(); runContentSearch('');
-    currentName.textContent = 'Niciun fișier deschis';
-    content.innerHTML = '<div class="empty-state"><h1>📖 Markdown Reader</h1><p>Importă un <b>folder</b> sau <b>fișiere</b>.</p></div>';
+    currentName.textContent = 'No file open';
+    content.innerHTML = '<div class="empty-state"><h1>📖 Markdown Reader</h1><p>Import a <b>folder</b> or <b>files</b>.</p></div>';
     tocEl.innerHTML = '';
     try { await tx('files', 'readwrite', (s) => s.clear()); await tx('images', 'readwrite', (s) => s.clear()); } catch (e) {}
     localStorage.removeItem('md-active'); localStorage.removeItem('md-root');
@@ -501,7 +501,7 @@
     const next = searchModeBtn.dataset.mode === 'name' ? 'content' : 'name';
     searchModeBtn.dataset.mode = next;
     searchModeBtn.textContent = next === 'content' ? '📄' : '🔤';
-    filter.placeholder = next === 'content' ? 'Caută în text…' : 'Caută fișier…';
+    filter.placeholder = next === 'content' ? 'Search in text…' : 'Search file…';
     applySearch();
   });
 

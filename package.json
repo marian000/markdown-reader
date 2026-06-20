@@ -1,7 +1,7 @@
 {
   "name": "markdown-reader",
   "version": "1.0.0",
-  "description": "Citește și previzualizează fișiere .md — Android (APK) + macOS (DMG)",
+  "description": "Read and preview .md files — Android (APK) + macOS (DMG)",
   "main": "electron/main.js",
   "author": "Marian",
   "license": "MIT",
