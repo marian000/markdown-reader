@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+dist-mac/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1e1e2e">
+  <title>Markdown Reader</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" id="hlTheme" href="vendor/hl/github-dark.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="sidebar-head">
+        <span class="brand">📖 Markdown</span>
+        <button id="closeSidebar" class="icon-btn" title="Ascunde sidebar">✕</button>
+      </div>
+
+      <div class="import-row">
+        <button id="importFolder" class="import-btn">📁 Folder</button>
+        <button id="importFiles" class="import-btn">📄 Fișiere</button>
+      </div>
+
+      <input id="folderInput" type="file" webkitdirectory directory multiple hidden>
+      <input id="filesInput" type="file" accept=".md,.markdown,.mdown,.mkd,.txt" multiple hidden>
+
+      <div class="search-row">
+        <input id="filter" type="search" placeholder="Caută..." autocomplete="off">
+        <button id="searchMode" class="mode-btn" title="Comută nume / conținut" data-mode="name">🔤</button>
+      </div>
+
+      <div id="treeWrap"><ul id="tree"></ul></div>
+      <div id="results" hidden></div>
+
+      <div class="sidebar-foot">
+        <span id="fileCount">0 fișiere</span>
+        <button id="refreshBtn" class="text-btn" title="Reîncarcă de pe disc" hidden>↻ Refresh</button>
+        <button id="clearAll" class="text-btn">Golește</button>
+      </div>
+    </aside>
+
+    <main id="main">
+      <header id="topbar">
+        <button id="openSidebar" class="icon-btn" title="Sidebar">☰</button>
+        <span id="currentName">Niciun fișier deschis</span>
+        <div class="topbar-actions">
+          <button id="quickOpen" class="icon-btn" title="Deschidere rapidă (Cmd/Ctrl+P)">⌕</button>
+          <button id="fontDown" class="icon-btn" title="Text mai mic">A−</button>
+          <button id="fontUp" class="icon-btn" title="Text mai mare">A+</button>
+          <button id="toggleWide" class="icon-btn" title="Lățime citire">⇔</button>
+          <button id="toggleToc" class="icon-btn" title="Cuprins">¶</button>
+          <button id="printBtn" class="icon-btn" title="Export PDF / Print">⎙</button>
+          <button id="toggleTheme" class="icon-btn" title="Temă">🌓</button>
+        </div>
+      </header>
+
+      <div id="body">
+        <article id="content">
+          <div class="empty-state">
+            <h1>📖 Markdown Reader</h1>
+            <p>Importă un <b>folder</b> sau <b>fișiere</b> din sidebar.</p>
+            <p>Click pe un fișier .md ca să-l vezi randat.</p>
+          </div>
+        </article>
+        <nav id="toc" hidden></nav>
+      </div>
+    </main>
+  </div>
+
+  <!-- Quick open modal -->
+  <div id="qoOverlay" hidden>
+    <div id="qoBox">
+      <input id="qoInput" type="text" placeholder="Caută fișier..." autocomplete="off">
+      <ul id="qoList"></ul>
+    </div>
+  </div>
+
+  <script src="vendor/marked.min.js"></script>
+  <script src="vendor/purify.min.js"></script>
+  <script src="vendor/hl/highlight.min.js"></script>
+  <script src="vendor/katex/katex.min.js"></script>
+  <script src="vendor/katex/contrib/auto-render.min.js"></script>
+  <script src="vendor/mermaid.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
